@@ -1,17 +1,15 @@
 import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
 
-export default getRequestConfig(async ({ requestLocale }) => {
-  // Await the locale
-  let locale = await requestLocale;
+export default getRequestConfig(async ({ locale }) => {
+  // Ensure locale is defined and valid
+  let resolvedLocale: 'en' | 'es';
 
-  // Ensure locale is valid, fallback to default
   if (!locale || !routing.locales.includes(locale as 'en' | 'es')) {
-    locale = routing.defaultLocale;
+    resolvedLocale = routing.defaultLocale;
+  } else {
+    resolvedLocale = locale as 'en' | 'es';
   }
-
-  // TypeScript sees this as string now
-  const resolvedLocale: 'en' | 'es' = locale as 'en' | 'es';
 
   // Import messages safely
   const messages = (await import(`./messages/${resolvedLocale}.json`)).default;
