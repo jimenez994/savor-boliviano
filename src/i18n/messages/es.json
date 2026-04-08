@@ -1,0 +1,153 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "menu": "Menú",
+    "location": "Ubicación",
+    "catering": "Catering",
+    "about": "Nosotros",
+    "gallery": "Galería",
+    "orderNow": "Ordenar"
+  },
+  "hero": {
+    "tagline": "Auténtica Comida Callejera Boliviana sobre Ruedas",
+    "description": "Experimenta los sabores vibrantes de Cochabamba, Bolivia. Recetas familiares transmitidas por generaciones, ahora en un food truck cerca de ti.",
+    "findUs": "Encuéntranos Hoy",
+    "bookCatering": "Reservar Catering"
+  },
+  "menu": {
+    "title": "Nuestro Menú",
+    "subtitle": "Sabores auténticos desde el corazón de Bolivia",
+    "categories": {
+      "all": "Todos",
+      "mains": "Platos Principales",
+      "snacks": "Botanas",
+      "sides": "Acompañamientos"
+    },
+    "spiceLevel": "Nivel de Picante",
+    "items": {
+      "saltenas": {
+        "name": "Salteñas",
+        "description": "Empanadas bolivianas tradicionales rellenas de guiso de carne, camote y aceitunas. Un snack perfecto para la mañana.",
+        "price": "$5"
+      },
+      "piqueMacho": {
+        "name": "Pique Macho",
+        "description": "¡El plato estrella de Cochabamba! Tiras de carne de res a la parrilla sobre papas fritas, cubiertas con cebolla, tomate, ají y salsa llajua.",
+        "price": "$14"
+      },
+      "anticuchos": {
+        "name": "Anticuchos",
+        "description": "Brochetas de corazón de res marinado a la parrilla, servidas con papas y salsa picante de maní.",
+        "price": "$12"
+      },
+      "silpancho": {
+        "name": "Silpancho",
+        "description": "Delgado filete empanizado sobre arroz y papas, cubierto con huevo frito, cebolla, tomate y llajua.",
+        "price": "$13"
+      },
+      "tucumanas": {
+        "name": "Tucumanas",
+        "description": "Empanadas fritas y crujientes rellenas de carne molida sazonada, perfectas con nuestras salsas de la casa.",
+        "price": "$6"
+      },
+      "yucaFrita": {
+        "name": "Yuca Frita",
+        "description": "Raíz de yuca dorada y frita, crujiente por fuera y suave por dentro. Se sirve con llajua o salsa de queso.",
+        "price": "$5"
+      },
+      "platanosFritos": {
+        "name": "Plátanos Fritos",
+        "description": "Plátanos dulces fritos hasta la caramelización perfecta. Un acompañamiento muy querido.",
+        "price": "$4"
+      },
+      "choripan": {
+        "name": "Choripán",
+        "description": "Chorizo a la parrilla en pan crujiente con chimichurri y cebollas asadas.",
+        "price": "$8"
+      }
+    }
+  },
+  "location": {
+    "title": "Encuentra Nuestro Truck",
+    "subtitle": "¡Siempre en movimiento - atrápalo en estos lugares!",
+    "weeklySchedule": "Horario Semanal",
+    "days": {
+      "monday": "Lunes",
+      "tuesday": "Martes",
+      "wednesday": "Miércoles",
+      "thursday": "Jueves",
+      "friday": "Viernes",
+      "saturday": "Sábado",
+      "sunday": "Domingo"
+    },
+    "locations": {
+      "downtown": "Plaza Centro - Calle Principal y 5ta Ave",
+      "university": "Distrito Universitario - Campus Green",
+      "market": "Mercado de Fin de Semana - Parque Riverfront",
+      "festival": "Festival de Food Trucks - Centro de la Ciudad"
+    },
+    "hours": {
+      "lunch": "11:00 AM - 3:00 PM",
+      "dinner": "5:00 PM - 9:00 PM",
+      "allDay": "10:00 AM - 8:00 PM",
+      "closed": "Cerrado"
+    },
+    "currentLocation": "Ubicación Actual",
+    "viewMap": "Ver en Mapa"
+  },
+  "catering": {
+    "title": "Catering y Eventos",
+    "subtitle": "¡Lleva los sabores auténticos de Bolivia a tu próximo evento!",
+    "services": {
+      "privateParties": "Fiestas Privadas",
+      "corporate": "Eventos Corporativos",
+      "festivals": "Festivales y Mercados",
+      "weddings": "Bodas"
+    },
+    "description": "Desde reuniones íntimas hasta grandes festivales, llevamos el sabor auténtico de Bolivia a tu evento. Nuestra cocina móvil puede atender desde 20 hasta 500 invitados.",
+    "contactTitle": "Reserva tu Evento",
+    "form": {
+      "name": "Tu Nombre",
+      "email": "Correo Electrónico",
+      "phone": "Número de Teléfono",
+      "date": "Fecha del Evento",
+      "guests": "Número de Invitados",
+      "message": "Cuéntanos sobre tu evento",
+      "submit": "Solicitar Cotización"
+    }
+  },
+  "about": {
+    "title": "Nuestra Historia",
+    "subtitle": "De Cochabamba a tu vecindario",
+    "story1": "Nuestro viaje comenzó en los valles de Cochabamba, Bolivia, donde la comida es más que alimento: es una celebración de familia, tradición y comunidad. Creciendo en Tarata, un pequeño pueblo conocido por sus mercados vibrantes y cultura de comida callejera, las recetas se transmitían por generaciones como preciosas herencias.",
+    "story2": "Después de mudarnos a Estados Unidos, extrañábamos los sabores auténticos de casa: los anticuchos humeantes de los vendedores callejeros, las salteñas calientes disfrutadas en el desayuno, y el abundante pique macho compartido con amigos. Así que decidimos traer esos sabores para ti.",
+    "story3": "Hoy, nuestro food truck continúa las tradiciones de Punata, Tolata y todos los hermosos pueblos de Cochabamba. Cada plato está hecho con las mismas técnicas y pasión que nuestras abuelas nos enseñaron, usando recetas que se han perfeccionado durante décadas.",
+    "values": {
+      "tradition": "Tradiciones Familiares",
+      "traditionDesc": "Recetas transmitidas por generaciones",
+      "authentic": "Ingredientes Auténticos",
+      "authenticDesc": "Especias importadas y productos locales",
+      "community": "Enfoque Comunitario",
+      "communityDesc": "Uniendo personas a través de la comida"
+    }
+  },
+  "gallery": {
+    "title": "Galería",
+    "subtitle": "Un sabor de Bolivia en cada bocado"
+  },
+  "footer": {
+    "followUs": "Síguenos",
+    "contact": "Contacto",
+    "address": "Ubicación del Food Truck Varía - Verifica Horario",
+    "phone": "(555) 123-4567",
+    "email": "hola@bolivianfoodtruck.com",
+    "copyright": "© 2026 Bolivian Food Truck. Todos los derechos reservados.",
+    "madeWith": "Hecho con"
+  },
+  "common": {
+    "mild": "Suave",
+    "medium": "Medio",
+    "hot": "Picante",
+    "spicy": "Especiado"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "location": "Location",
+    "catering": "Catering",
+    "about": "About",
+    "gallery": "Gallery",
+    "orderNow": "Order Now"
+  },
+  "hero": {
+    "tagline": "Authentic Bolivian Street Food on Wheels",
+    "description": "Experience the vibrant flavors of Cochabamba, Bolivia. Family recipes passed down through generations, now on a food truck near you.",
+    "findUs": "Find Us Today",
+    "bookCatering": "Book Catering"
+  },
+  "menu": {
+    "title": "Our Menu",
+    "subtitle": "Authentic flavors from the heart of Bolivia",
+    "categories": {
+      "all": "All",
+      "mains": "Main Dishes",
+      "snacks": "Snacks",
+      "sides": "Sides"
+    },
+    "spiceLevel": "Spice Level",
+    "items": {
+      "saltenas": {
+        "name": "Salteñas",
+        "description": "Traditional Bolivian empanadas filled with savory meat stew, sweet potatoes, and olives. A perfect morning snack.",
+        "price": "$5"
+      },
+      "piqueMacho": {
+        "name": "Pique Macho",
+        "description": "Cochabamba's signature dish! Grilled beef strips over fries, topped with onions, tomatoes, peppers, and llajua sauce.",
+        "price": "$14"
+      },
+      "anticuchos": {
+        "name": "Anticuchos",
+        "description": "Marinated beef heart skewers grilled to perfection, served with potatoes and spicy peanut sauce.",
+        "price": "$12"
+      },
+      "silpancho": {
+        "name": "Silpancho",
+        "description": "Thin breaded beef cutlet over rice and potatoes, topped with fried egg, onions, tomatoes, and llajua.",
+        "price": "$13"
+      },
+      "tucumanas": {
+        "name": "Tucumanas",
+        "description": "Crispy fried empanadas filled with seasoned ground beef, perfect with our house sauces.",
+        "price": "$6"
+      },
+      "yucaFrita": {
+        "name": "Yuca Frita",
+        "description": "Golden fried cassava root, crispy outside and soft inside. Served with llajua or cheese sauce.",
+        "price": "$5"
+      },
+      "platanosFritos": {
+        "name": "Plátanos Fritos",
+        "description": "Sweet plantains fried to caramelized perfection. A beloved side dish.",
+        "price": "$4"
+      },
+      "choripan": {
+        "name": "Choripán",
+        "description": "Grilled chorizo in crusty bread with chimichurri and grilled onions.",
+        "price": "$8"
+      }
+    }
+  },
+  "location": {
+    "title": "Find Our Truck",
+    "subtitle": "We're always on the move - catch us at these spots!",
+    "weeklySchedule": "Weekly Schedule",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "locations": {
+      "downtown": "Downtown Plaza - Main St & 5th Ave",
+      "university": "University District - Campus Green",
+      "market": "Weekend Market - Riverfront Park",
+      "festival": "Food Truck Festival - City Center"
+    },
+    "hours": {
+      "lunch": "11:00 AM - 3:00 PM",
+      "dinner": "5:00 PM - 9:00 PM",
+      "allDay": "10:00 AM - 8:00 PM",
+      "closed": "Closed"
+    },
+    "currentLocation": "Current Location",
+    "viewMap": "View on Map"
+  },
+  "catering": {
+    "title": "Catering & Events",
+    "subtitle": "Bring authentic Bolivian flavors to your next event!",
+    "services": {
+      "privateParties": "Private Parties",
+      "corporate": "Corporate Events",
+      "festivals": "Festivals & Markets",
+      "weddings": "Weddings"
+    },
+    "description": "From intimate gatherings to large festivals, we bring the authentic taste of Bolivia to your event. Our mobile kitchen can serve anywhere from 20 to 500 guests.",
+    "contactTitle": "Book Your Event",
+    "form": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "date": "Event Date",
+      "guests": "Number of Guests",
+      "message": "Tell us about your event",
+      "submit": "Request Quote"
+    }
+  },
+  "about": {
+    "title": "Our Story",
+    "subtitle": "From Cochabamba to your neighborhood",
+    "story1": "Our journey began in the valleys of Cochabamba, Bolivia, where food is more than sustenance—it's a celebration of family, tradition, and community. Growing up in Tarata, a small town known for its vibrant markets and street food culture, recipes were passed down through generations like precious heirlooms.",
+    "story2": "After moving to the United States, we missed the authentic flavors of home—the sizzling anticuchos from street vendors, the warm salteñas enjoyed for breakfast, and the hearty pique macho shared with friends. So we decided to bring those flavors to you.",
+    "story3": "Today, our food truck carries on the traditions of Punata, Tolata, and all the beautiful towns of Cochabamba. Every dish is made with the same techniques and passion that our abuelas taught us, using recipes that have been perfected over decades.",
+    "values": {
+      "tradition": "Family Traditions",
+      "traditionDesc": "Recipes passed down through generations",
+      "authentic": "Authentic Ingredients",
+      "authenticDesc": "Imported spices and local produce",
+      "community": "Community Focused",
+      "communityDesc": "Bringing people together through food"
+    }
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "A taste of Bolivia in every bite"
+  },
+  "footer": {
+    "followUs": "Follow Us",
+    "contact": "Contact",
+    "address": "Food Truck Location Varies - Check Schedule",
+    "phone": "(555) 123-4567",
+    "email": "hola@bolivianfoodtruck.com",
+    "copyright": "© 2026 Bolivian Food Truck. All rights reserved.",
+    "madeWith": "Made with"
+  },
+  "common": {
+    "mild": "Mild",
+    "medium": "Medium",
+    "hot": "Hot",
+    "spicy": "Spicy"
+  }
+}
