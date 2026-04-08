@@ -1,21 +1,25 @@
 import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
+import enMessages from './messages/en.json';
+import esMessages from './messages/es.json';
 
-export default getRequestConfig(async ({ locale }) => {
-  // Ensure locale is defined and valid
-  let resolvedLocale: 'en' | 'es';
+const messagesMap: Record<string, any> = {
+  en: enMessages,
+  es: esMessages,
+};
 
-  if (!locale || !routing.locales.includes(locale as 'en' | 'es')) {
-    resolvedLocale = routing.defaultLocale;
-  } else {
-    resolvedLocale = locale as 'en' | 'es';
-  }
+export default getRequestConfig(async ({ requestLocale }) => {
+  // Await the requestLocale promise
+  const localeFromRequest = await requestLocale;
 
-  // Import messages safely
-  const messages = (await import(`./messages/${resolvedLocale}.json`)).default;
+  // Resolve locale safely
+  const resolvedLocale: 'en' | 'es' = 
+    localeFromRequest && routing.locales.includes(localeFromRequest as 'en' | 'es')
+      ? (localeFromRequest as 'en' | 'es')
+      : routing.defaultLocale;
 
   return {
     locale: resolvedLocale,
-    messages
+    messages: messagesMap[resolvedLocale],
   };
 });
