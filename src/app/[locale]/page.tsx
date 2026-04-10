@@ -7,19 +7,40 @@ import { CateringSection } from '@/components/sections/CateringSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { GallerySection } from '@/components/sections/GallerySection';
 
-export default function Home() {
+async function getContent() {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/content`, {
+      cache: 'no-store',
+    });
+    if (!res.ok) return null;
+    return res.json();
+  } catch {
+    return null;
+  }
+}
+
+export default async function Home() {
+  const content = await getContent();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1">
-        <HeroSection />
+        <HeroSection content={content?.content} />
         <MenuSection />
-        <LocationSection />
+        <LocationSection schedule={content?.schedule} />
         <CateringSection />
-        <AboutSection />
+        <AboutSection content={content?.content} />
         <GallerySection />
       </main>
-      <Footer />
+      <Footer
+        socialLinks={content?.social}
+        contact={{
+          address: content?.content?.footer_address,
+          phone: content?.content?.footer_phone,
+          email: content?.content?.footer_email,
+        }}
+      />
     </div>
   );
 }

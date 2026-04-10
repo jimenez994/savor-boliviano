@@ -25,8 +25,12 @@ const values = [
   },
 ];
 
-export function AboutSection() {
+type ContentMap = Record<string, string>;
+
+export function AboutSection({ content }: { content?: ContentMap | null }) {
   const t = useTranslations();
+  const title = content?.about_title?.trim() || t('about.title');
+  const subtitle = content?.about_subtitle?.trim() || t('about.subtitle');
 
   return (
     <section id="about" className="py-20 bg-white">
@@ -95,10 +99,10 @@ export function AboutSection() {
               <div className="h-1 w-24 bg-gradient-to-r from-bolivian-red via-bolivian-yellow to-bolivian-red rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-charcoal mb-6">
-              {t('about.title')}
+              {title}
             </h2>
             <p className="text-lg text-gray-600 mb-4">
-              {t('about.subtitle')}
+              {subtitle}
             </p>
 
             <div className="space-y-4 text-gray-600 leading-relaxed">

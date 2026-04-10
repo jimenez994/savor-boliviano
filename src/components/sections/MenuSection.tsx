@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Flame, Utensils } from 'lucide-react';
+import { Utensils } from 'lucide-react';
 
 interface MenuItem {
   key: string;
@@ -11,7 +11,6 @@ interface MenuItem {
   description: string;
   price: string;
   image: string;
-  spiceLevel: 0 | 1 | 2 | 3;
   category: 'mains' | 'snacks' | 'sides';
 }
 
@@ -26,7 +25,6 @@ export function MenuSection() {
       description: t('menu.items.saltenas.description'),
       price: t('menu.items.saltenas.price'),
       image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=800&q=80',
-      spiceLevel: 2,
       category: 'snacks',
     },
     {
@@ -35,7 +33,6 @@ export function MenuSection() {
       description: t('menu.items.piqueMacho.description'),
       price: t('menu.items.piqueMacho.price'),
       image: 'https://images.unsplash.com/photo-1544025162-d76690b67f61?w=800&q=80',
-      spiceLevel: 3,
       category: 'mains',
     },
     {
@@ -44,7 +41,6 @@ export function MenuSection() {
       description: t('menu.items.anticuchos.description'),
       price: t('menu.items.anticuchos.price'),
       image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800&q=80',
-      spiceLevel: 2,
       category: 'mains',
     },
     {
@@ -53,7 +49,6 @@ export function MenuSection() {
       description: t('menu.items.silpancho.description'),
       price: t('menu.items.silpancho.price'),
       image: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800&q=80',
-      spiceLevel: 2,
       category: 'mains',
     },
     {
@@ -62,7 +57,6 @@ export function MenuSection() {
       description: t('menu.items.tucumanas.description'),
       price: t('menu.items.tucumanas.price'),
       image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=800&q=80',
-      spiceLevel: 1,
       category: 'snacks',
     },
     {
@@ -71,7 +65,6 @@ export function MenuSection() {
       description: t('menu.items.yucaFrita.description'),
       price: t('menu.items.yucaFrita.price'),
       image: 'https://images.unsplash.com/photo-1623341214825-9f4f964368dc?w=800&q=80',
-      spiceLevel: 1,
       category: 'sides',
     },
     {
@@ -80,7 +73,6 @@ export function MenuSection() {
       description: t('menu.items.platanosFritos.description'),
       price: t('menu.items.platanosFritos.price'),
       image: 'https://images.unsplash.com/photo-1605333556896-7e358709c059?w=800&q=80',
-      spiceLevel: 0,
       category: 'sides',
     },
     {
@@ -89,7 +81,6 @@ export function MenuSection() {
       description: t('menu.items.choripan.description'),
       price: t('menu.items.choripan.price'),
       image: 'https://images.unsplash.com/photo-1594007654729-407eed60bead?w=800&q=80',
-      spiceLevel: 1,
       category: 'snacks',
     },
   ];
@@ -105,25 +96,6 @@ export function MenuSection() {
     activeCategory === 'all'
       ? menuItems
       : menuItems.filter((item) => item.category === activeCategory);
-
-  const SpiceIndicator = ({ level }: { level: number }) => (
-    <div className="flex gap-1">
-      {[1, 2, 3].map((i) => (
-        <div
-          key={i}
-          className={`w-4 h-4 rounded-full ${
-            i <= level
-              ? i === 1
-                ? 'bg-green-500'
-                : i === 2
-                ? 'bg-yellow-400'
-                : 'bg-red-500'
-              : 'bg-gray-200'
-          }`}
-        />
-      ))}
-    </div>
-  );
 
   return (
     <section id="menu" className="py-20 bg-off-white">
@@ -187,12 +159,8 @@ export function MenuSection() {
                   style={{ backgroundImage: `url('${item.image}')` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                <div className="absolute bottom-3 left-3 right-3">
                   <span className="text-white font-bold text-lg">{item.price}</span>
-                  <div className="flex items-center gap-1 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full">
-                    <Flame className="w-3 h-3 text-bolivian-red" />
-                    <SpiceIndicator level={item.spiceLevel} />
-                  </div>
                 </div>
               </div>
 
@@ -209,39 +177,6 @@ export function MenuSection() {
           ))}
         </motion.div>
 
-        {/* Spice Level Legend */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex justify-center items-center gap-6 mt-12 text-sm"
-        >
-          <span className="text-gray-500">{t('menu.spiceLevel')}:</span>
-          <div className="flex items-center gap-2">
-            <div className="flex gap-1">
-              <div className="w-3 h-3 rounded-full bg-green-500" />
-              <div className="w-3 h-3 rounded-full bg-gray-200" />
-              <div className="w-3 h-3 rounded-full bg-gray-200" />
-            </div>
-            <span className="text-gray-600">{t('common.mild')}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="flex gap-1">
-              <div className="w-3 h-3 rounded-full bg-green-500" />
-              <div className="w-3 h-3 rounded-full bg-yellow-400" />
-              <div className="w-3 h-3 rounded-full bg-gray-200" />
-            </div>
-            <span className="text-gray-600">{t('common.medium')}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="flex gap-1">
-              <div className="w-3 h-3 rounded-full bg-green-500" />
-              <div className="w-3 h-3 rounded-full bg-yellow-400" />
-              <div className="w-3 h-3 rounded-full bg-red-500" />
-            </div>
-            <span className="text-gray-600">{t('common.hot')}</span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

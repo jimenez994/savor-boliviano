@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, UtensilsCrossed } from 'lucide-react';
 import { LanguageToggle } from './LanguageToggle';
-import { Button } from '@/components/ui/Button';
 
 const navItems = [
   { href: '#home', key: 'nav.home' },
@@ -106,13 +105,6 @@ export function Header() {
               <div className="hidden sm:block">
                 <LanguageToggle />
               </div>
-              <Button
-                variant={isScrolled ? 'primary' : 'white'}
-                size="sm"
-                className="hidden sm:inline-flex"
-              >
-                {t('nav.orderNow')}
-              </Button>
 
               {/* Mobile menu button */}
               <button
@@ -156,13 +148,10 @@ export function Header() {
                     {t(item.key)}
                   </motion.button>
                 ))}
-                <div className="pt-4 border-t border-gray-200 flex flex-col gap-3">
+                <div className="pt-4 border-t border-gray-200">
                   <div className="flex justify-center">
                     <LanguageToggle />
                   </div>
-                  <Button variant="primary" className="w-full">
-                    {t('nav.orderNow')}
-                  </Button>
                 </div>
               </nav>
             </div>

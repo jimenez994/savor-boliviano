@@ -5,12 +5,11 @@
     "location": "Ubicación",
     "catering": "Catering",
     "about": "Nosotros",
-    "gallery": "Galería",
-    "orderNow": "Ordenar"
+    "gallery": "Galería"
   },
   "hero": {
-    "tagline": "Auténtica Comida Callejera Boliviana sobre Ruedas",
-    "description": "Experimenta los sabores vibrantes de Cochabamba, Bolivia. Recetas familiares transmitidas por generaciones, ahora en un food truck cerca de ti.",
+    "tagline": "Auténtica Cocina Boliviana en EE.UU.",
+    "description": "Estamos llevando los sabores vibrantes de Cochabamba, Bolivia a los Estados Unidos. Recetas familiares transmitidas por generaciones, ahora sirviéndote desde nuestro food truck.",
     "findUs": "Encuéntranos Hoy",
     "bookCatering": "Reservar Catering"
   },
@@ -23,7 +22,6 @@
       "snacks": "Botanas",
       "sides": "Acompañamientos"
     },
-    "spiceLevel": "Nivel de Picante",
     "items": {
       "saltenas": {
         "name": "Salteñas",
@@ -71,6 +69,7 @@
     "title": "Encuentra Nuestro Truck",
     "subtitle": "¡Siempre en movimiento - atrápalo en estos lugares!",
     "weeklySchedule": "Horario Semanal",
+    "today": "Hoy",
     "days": {
       "monday": "Lunes",
       "tuesday": "Martes",
@@ -144,10 +143,5 @@
     "copyright": "© 2026 Bolivian Food Truck. Todos los derechos reservados.",
     "madeWith": "Hecho con"
   },
-  "common": {
-    "mild": "Suave",
-    "medium": "Medio",
-    "hot": "Picante",
-    "spicy": "Especiado"
-  }
+  "common": {}
 }

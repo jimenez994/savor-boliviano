@@ -1,9 +1,9 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useCallback, useEffect } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const galleryImages = [
   {
@@ -51,6 +51,32 @@ const galleryImages = [
 export function GallerySection() {
   const t = useTranslations();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+  const nextImage = useCallback(() => {
+    setSelectedImage((prev) => {
+      if (prev === null) return null;
+      return prev >= galleryImages.length - 1 ? 0 : prev + 1;
+    });
+  }, []);
+
+  const prevImage = useCallback(() => {
+    setSelectedImage((prev) => {
+      if (prev === null) return null;
+      return prev <= 0 ? galleryImages.length - 1 : prev - 1;
+    });
+  }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedImage === null) return;
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') setSelectedImage(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, nextImage, prevImage]);
 
   return (
     <section id="gallery" className="py-20 bg-off-white">
@@ -108,30 +134,77 @@ export function GallerySection() {
       </div>
 
       {/* Lightbox Modal */}
-      {selectedImage !== null && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button
+      <AnimatePresence>
+        {selectedImage !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
-            className="absolute top-4 right-4 text-white/70 hover:text-white"
-            aria-label="Close modal"
           >
-            <X className="w-8 h-8" />
-          </button>
-          <div
-            className="max-w-4xl max-h-[80vh] bg-cover bg-center rounded-lg"
-            style={{
-              backgroundImage: `url('${galleryImages[selectedImage].src}')`,
-            }}
-            onClick={(e) => e.stopPropagation()}
-          />
-        </motion.div>
-      )}
+            {/* Close button */}
+            <motion.button
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+              className="absolute top-4 right-4 text-white/70 hover:text-white z-50 p-2"
+              aria-label="Close modal"
+            >
+              <X className="w-6 h-6 sm:w-8 sm:h-8" />
+            </motion.button>
+
+            {/* Previous button - Mobile friendly */}
+            <motion.button
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                prevImage();
+              }}
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white z-50 p-2 sm:p-3 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
+            </motion.button>
+
+            {/* Next button - Mobile friendly */}
+            <motion.button
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                nextImage();
+              }}
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white z-50 p-2 sm:p-3 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+            </motion.button>
+
+            {/* Image */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="max-w-4xl max-h-[80vh] w-full h-full bg-cover bg-center rounded-lg shadow-2xl"
+              style={{
+                backgroundImage: `url('${galleryImages[selectedImage].src}')`,
+              }}
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            {/* Image counter - Mobile friendly */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/70 text-xs sm:text-sm font-medium">
+              {selectedImage + 1} / {galleryImages.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

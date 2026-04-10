@@ -5,8 +5,12 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { MapPin, Calendar } from 'lucide-react';
 
-export function HeroSection() {
+type ContentMap = Record<string, string>;
+
+export function HeroSection({ content }: { content?: ContentMap | null }) {
   const t = useTranslations();
+  const tagline = content?.hero_tagline?.trim() || t('hero.tagline');
+  const description = content?.hero_description?.trim() || t('hero.description');
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -50,7 +54,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
         >
-          {t('hero.tagline')}
+          {tagline}
         </motion.h1>
 
         {/* Description */}
@@ -60,7 +64,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-lg sm:text-xl text-white/90 mb-10 max-w-3xl mx-auto"
         >
-          {t('hero.description')}
+          {description}
         </motion.p>
 
         {/* CTA Buttons */}

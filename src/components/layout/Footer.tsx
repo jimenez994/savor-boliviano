@@ -9,14 +9,31 @@ import {
   Heart,
 } from 'lucide-react';
 
-const socialLinks = [
+const defaultSocialLinks = [
   { name: 'Instagram', href: '#' },
   { name: 'Facebook', href: '#' },
   { name: 'Twitter', href: '#' },
 ];
 
-export function Footer() {
+export function Footer({
+  socialLinks: socialFromApi,
+  contact: contactFromCms,
+}: {
+  socialLinks?: { platform: string; url: string }[] | null;
+  contact?: {
+    address?: string | null;
+    phone?: string | null;
+    email?: string | null;
+  } | null;
+}) {
   const t = useTranslations();
+  const address = contactFromCms?.address?.trim() || t('footer.address');
+  const phone = contactFromCms?.phone?.trim() || t('footer.phone');
+  const email = contactFromCms?.email?.trim() || t('footer.email');
+  const socialLinks =
+    socialFromApi && socialFromApi.length > 0
+      ? socialFromApi.map((s) => ({ name: s.platform, href: s.url || '#' }))
+      : defaultSocialLinks;
 
   return (
     <footer className="bg-charcoal text-white">
@@ -48,15 +65,15 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-white/80">
                 <MapPin className="w-5 h-5 text-bolivian-red flex-shrink-0 mt-0.5" />
-                <span className="text-sm">{t('footer.address')}</span>
+                <span className="text-sm">{address}</span>
               </li>
               <li className="flex items-center gap-3 text-white/80">
                 <Phone className="w-5 h-5 text-bolivian-red flex-shrink-0" />
-                <span className="text-sm">{t('footer.phone')}</span>
+                <span className="text-sm">{phone}</span>
               </li>
               <li className="flex items-center gap-3 text-white/80">
                 <Mail className="w-5 h-5 text-bolivian-red flex-shrink-0" />
-                <span className="text-sm">{t('footer.email')}</span>
+                <span className="text-sm">{email}</span>
               </li>
             </ul>
           </div>

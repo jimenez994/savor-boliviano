@@ -5,12 +5,11 @@
     "location": "Location",
     "catering": "Catering",
     "about": "About",
-    "gallery": "Gallery",
-    "orderNow": "Order Now"
+    "gallery": "Gallery"
   },
   "hero": {
-    "tagline": "Authentic Bolivian Street Food on Wheels",
-    "description": "Experience the vibrant flavors of Cochabamba, Bolivia. Family recipes passed down through generations, now on a food truck near you.",
+    "tagline": "Authentic Bolivian Cuisine in the USA",
+    "description": "We're bringing the vibrant flavors of Cochabamba, Bolivia to the United States. Family recipes passed down through generations, now serving you from our food truck.",
     "findUs": "Find Us Today",
     "bookCatering": "Book Catering"
   },
@@ -23,7 +22,6 @@
       "snacks": "Snacks",
       "sides": "Sides"
     },
-    "spiceLevel": "Spice Level",
     "items": {
       "saltenas": {
         "name": "Salteñas",
@@ -71,6 +69,7 @@
     "title": "Find Our Truck",
     "subtitle": "We're always on the move - catch us at these spots!",
     "weeklySchedule": "Weekly Schedule",
+    "today": "Today",
     "days": {
       "monday": "Monday",
       "tuesday": "Tuesday",
@@ -144,10 +143,5 @@
     "copyright": "© 2026 Bolivian Food Truck. All rights reserved.",
     "madeWith": "Made with"
   },
-  "common": {
-    "mild": "Mild",
-    "medium": "Medium",
-    "hot": "Hot",
-    "spicy": "Spicy"
-  }
+  "common": {}
 }

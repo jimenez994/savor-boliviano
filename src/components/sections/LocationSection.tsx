@@ -1,8 +1,9 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { MapPin, Clock, Navigation } from 'lucide-react';
+import { isScheduleDayToday } from '@/lib/scheduleToday';
 
 interface ScheduleDay {
   day: string;
@@ -11,10 +12,15 @@ interface ScheduleDay {
   isToday?: boolean;
 }
 
-export function LocationSection() {
+export function LocationSection({
+  schedule: scheduleFromApi,
+}: {
+  schedule?: ScheduleDay[] | null;
+}) {
   const t = useTranslations();
+  const locale = useLocale();
 
-  const schedule: ScheduleDay[] = [
+  const defaultSchedule: ScheduleDay[] = [
     {
       day: t('location.days.monday'),
       location: t('location.locations.downtown'),
@@ -51,6 +57,9 @@ export function LocationSection() {
       hours: '',
     },
   ];
+
+  const schedule =
+    scheduleFromApi && scheduleFromApi.length > 0 ? scheduleFromApi : defaultSchedule;
 
   return (
     <section id="location" className="py-20 bg-cream">
@@ -90,19 +99,31 @@ export function LocationSection() {
               </div>
             </div>
             <div className="divide-y divide-gray-100">
-              {schedule.map((day, index) => (
+              {schedule.map((day, index) => {
+                const today = isScheduleDayToday(day.day, { locale });
+                return (
                 <motion.div
-                  key={day.day}
+                  key={`${day.day}-${index}`}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className={`p-4 flex items-center gap-4 ${
-                    index === 4 ? 'bg-bolivian-yellow/20' : ''
+                  aria-current={today ? 'date' : undefined}
+                  className={`relative flex items-center gap-4 p-4 transition-colors ${
+                    today
+                      ? 'bg-gradient-to-r from-bolivian-yellow/35 via-bolivian-yellow/20 to-transparent ring-2 ring-inset ring-bolivian-red/25'
+                      : ''
                   }`}
                 >
                   <div className="w-24 flex-shrink-0">
-                    <span className="font-semibold text-charcoal">{day.day}</span>
+                    <span className="flex flex-col gap-0.5">
+                      <span className="font-semibold text-charcoal">{day.day}</span>
+                      {today ? (
+                        <span className="text-[0.65rem] font-bold uppercase tracking-wide text-bolivian-red">
+                          {t('location.today')}
+                        </span>
+                      ) : null}
+                    </span>
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 text-gray-600">
@@ -117,7 +138,8 @@ export function LocationSection() {
                     )}
                   </div>
                 </motion.div>
-              ))}
+              );
+              })}
             </div>
           </motion.div>
 
